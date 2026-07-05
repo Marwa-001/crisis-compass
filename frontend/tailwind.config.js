@@ -4,18 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        base: "#0F172A",      // Primary
-        action: "#2563EB",    // Secondary
-        danger: "#DC2626",
-        warning: "#F59E0B",
-        success: "#10B981",
-        canvas: "#F8FAFC",    // Background
+        base: "#09090b",      // Deep Dark Background (Zinc 950)
+        surface: "#18181b",   // Surface color (Zinc 900)
+        action: "#10b981",    // Emerald 500 for primary actions
+        actionHover: "#059669",
+        danger: "#ef4444",    // Red 500
+        warning: "#f59e0b",   // Amber 500
+        success: "#10b981",   // Emerald 500
+        canvas: "#000000",    // True black canvas
+        muted: "#a1a1aa",     // Zinc 400 for muted text
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "sans-serif"],
-        body: ["'IBM Plex Sans'", "sans-serif"],
-        mono: ["'IBM Plex Mono'", "monospace"],
+        display: ["'Outfit'", "sans-serif"],
+        body: ["'Inter'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
+      animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
+      }
     },
   },
   plugins: [],

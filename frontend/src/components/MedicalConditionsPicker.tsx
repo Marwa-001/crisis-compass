@@ -28,8 +28,8 @@ export default function MedicalConditionsPicker({ selected, onChange }: Props) {
 
   return (
     <div>
-      <label className="mb-2 block text-sm font-medium text-base">
-        Medical conditions <span className="font-normal text-base/50">(optional)</span>
+      <label className="mb-2 block text-sm font-medium text-white">
+        Medical conditions <span className="font-normal text-white/50">(optional)</span>
       </label>
       <div className="flex flex-wrap gap-2">
         {MEDICAL_CONDITION_PRESETS.map((condition) => {
@@ -42,7 +42,7 @@ export default function MedicalConditionsPicker({ selected, onChange }: Props) {
               className={`rounded-full border px-3 py-1 text-xs transition ${
                 active
                   ? "border-action bg-action/10 text-action"
-                  : "border-base/15 text-base/70 hover:border-action/40"
+                  : "border-white/10 text-white/70 hover:border-action/40"
               }`}
             >
               {condition}
@@ -55,7 +55,7 @@ export default function MedicalConditionsPicker({ selected, onChange }: Props) {
         value={otherText}
         onChange={(e) => handleOtherChange(e.target.value)}
         placeholder="Other conditions, comma separated"
-        className="mt-2 w-full rounded-xl border border-base/15 bg-white p-3 text-sm outline-none transition focus:border-action focus:ring-2 focus:ring-action/20"
+        className="mt-2 w-full rounded-xl border border-white/10 bg-surface p-3 text-white text-sm outline-none transition focus:border-action focus:ring-2 focus:ring-action/20"
       />
     </div>
   );

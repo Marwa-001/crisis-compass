@@ -52,7 +52,7 @@ export default function Profile() {
   if (loading || !user) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-canvas">
-        <p className="text-base/60">Loading...</p>
+        <p className="text-muted">Loading...</p>
       </main>
     );
   }
@@ -62,8 +62,8 @@ export default function Profile() {
       <div className="mx-auto max-w-md">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="font-display text-2xl font-bold text-base">{user.name}</h1>
-            <p className="text-sm text-base/60">{user.email}</p>
+            <h1 className="font-display text-2xl font-bold text-white">{user.name}</h1>
+            <p className="text-sm text-muted">{user.email}</p>
           </div>
           <button
             onClick={() => {
@@ -78,11 +78,11 @@ export default function Profile() {
 
         <form onSubmit={handleSave} className="mt-6 space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-base">Blood group</label>
+            <label className="mb-1 block text-sm font-medium text-white">Blood group</label>
             <select
               value={bloodGroup}
               onChange={(e) => setBloodGroup(e.target.value)}
-              className="w-full rounded-xl border border-base/15 bg-white p-3 text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
+              className="w-full rounded-xl border border-white/10 bg-surface p-3 text-white text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
             >
               <option value="">Prefer not to say</option>
               {BLOOD_GROUPS.map((bg) => (
@@ -96,23 +96,23 @@ export default function Profile() {
           <MedicalConditionsPicker selected={conditions} onChange={setConditions} />
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-base">
+            <label className="mb-1 block text-sm font-medium text-white">
               Emergency contact name
             </label>
             <input
               value={contactName}
               onChange={(e) => setContactName(e.target.value)}
-              className="w-full rounded-xl border border-base/15 bg-white p-3 text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
+              className="w-full rounded-xl border border-white/10 bg-surface p-3 text-white text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm font-medium text-base">
+            <label className="mb-1 block text-sm font-medium text-white">
               Emergency contact phone
             </label>
             <input
               value={contactPhone}
               onChange={(e) => setContactPhone(e.target.value)}
-              className="w-full rounded-xl border border-base/15 bg-white p-3 text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
+              className="w-full rounded-xl border border-white/10 bg-surface p-3 text-white text-sm outline-none focus:border-action focus:ring-2 focus:ring-action/20"
             />
           </div>
 

@@ -22,13 +22,13 @@ function ReportField({
   accent: string;
 }) {
   return (
-    <div className="border-t border-base/10 py-4 first:border-t-0">
+    <div className="border-t border-white/10 py-4 first:border-t-0">
       <h3 className={`font-mono text-[11px] font-semibold uppercase tracking-widest ${accent}`}>
         {title}
       </h3>
       <ul className="mt-3 space-y-2">
         {items.map((item, i) => (
-          <li key={i} className="flex gap-2 text-sm text-base/90">
+          <li key={i} className="flex gap-2 text-sm text-white/90">
             <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-40" />
             {item}
           </li>
@@ -82,7 +82,7 @@ export default function AIChat({
   return (
     <div className="mx-auto w-full max-w-2xl">
       <form onSubmit={handleSubmit} className="space-y-3">
-        <label htmlFor="situation" className="block font-display text-lg font-semibold text-base">
+        <label htmlFor="situation" className="block font-display text-lg font-semibold text-white">
           Describe what's happening
         </label>
         <textarea
@@ -91,7 +91,7 @@ export default function AIChat({
           onChange={(e) => setSituation(e.target.value)}
           rows={3}
           placeholder="e.g. There is smoke in my building"
-          className="w-full rounded-xl border border-base/15 bg-white p-4 text-base shadow-sm outline-none transition focus:border-action focus:ring-2 focus:ring-action/20"
+          className="w-full rounded-xl border border-white/10 bg-surface p-4 text-white shadow-sm outline-none transition focus:border-action focus:ring-2 focus:ring-action/20"
         />
         <div className="flex flex-wrap gap-2">
           {EXAMPLES.map((ex) => (
@@ -99,7 +99,7 @@ export default function AIChat({
               type="button"
               key={ex}
               onClick={() => setSituation(ex)}
-              className="rounded-full border border-base/10 bg-canvas px-3 py-1 text-xs text-base/70 transition hover:border-action/40 hover:text-action"
+              className="rounded-full border border-white/10 bg-canvas px-3 py-1 text-xs text-white/70 transition hover:border-action/40 hover:text-action"
             >
               {ex}
             </button>
@@ -125,10 +125,10 @@ export default function AIChat({
         <AnimatePresence>
           {plan && report && (
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="overflow-hidden rounded-2xl border border-base/10 bg-white shadow-sm"
+              initial={{ opacity: 0, y: 12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="overflow-hidden rounded-2xl glass-panel"
             >
               {(plan.danger_level === "critical" || plan.danger_level === "high") && (
                 <AlertBanner
@@ -139,19 +139,19 @@ export default function AIChat({
               )}
 
               <div className="p-5">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-base/10 pb-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
                   <div>
-                    <p className="font-display text-sm font-semibold uppercase tracking-wide text-base">
+                    <p className="font-display text-sm font-semibold uppercase tracking-wide text-white">
                       Incident report
                     </p>
-                    <p className="font-mono text-[11px] text-base/50">
+                    <p className="font-mono text-[11px] text-white/50">
                       #{report.id} · generated {report.time}
                     </p>
                   </div>
                   <RiskBadge level={plan.danger_level} />
                 </div>
 
-                <p className="mt-4 rounded-lg bg-base/5 p-3 text-sm text-base/90">
+                <p className="mt-4 rounded-lg bg-base/5 p-3 text-sm text-white/90">
                   {plan.situation}
                 </p>
 
