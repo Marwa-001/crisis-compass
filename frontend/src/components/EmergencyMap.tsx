@@ -218,7 +218,7 @@ export default function EmergencyMap({
     L.control.zoom({ position: "topright" }).addTo(map);
 
     // "LIVE DATA" watermark
-    const liveControl = L.control({ position: "topleft" });
+    const liveControl = new L.Control({ position: "topleft" });
     liveControl.onAdd = () => {
       const div = L.DomUtil.create("div");
       div.innerHTML = `
@@ -235,7 +235,7 @@ export default function EmergencyMap({
     liveControl.addTo(map);
 
     // Legend
-    const legend = L.control({ position: "bottomleft" });
+    const legend = new L.Control({ position: "bottomleft" });
     legend.onAdd = () => {
       const div = L.DomUtil.create("div");
       div.innerHTML = `

@@ -104,7 +104,7 @@ export default function CommunityBoard() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <HelpPostForm onSubmit={submitPost} submitting={submitting} />
+            <HelpPostForm onSubmit={async (p) => { await submitPost(p); }} submitting={submitting} />
           </motion.div>
 
           <motion.div

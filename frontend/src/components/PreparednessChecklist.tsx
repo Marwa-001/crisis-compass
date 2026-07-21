@@ -116,7 +116,7 @@ function MiniBar({ pct, color }: { pct: number; color: string }) {
 }
 
 // ── Check Item Row ────────────────────────────────────────────────────────────
-function CheckItem({ id, label, detail, critical, checked, onToggle }: {
+function CheckItem({ label, detail, critical, checked, onToggle }: {
   id: string; label: string; detail?: string; critical?: boolean;
   checked: boolean; onToggle: () => void;
 }) {

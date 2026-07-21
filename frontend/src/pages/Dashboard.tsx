@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import WeatherCard from "../components/WeatherCard";
@@ -17,10 +17,10 @@ function ScrambleText({ text }: { text: string }) {
   useEffect(() => {
     let iteration = 0;
     const interval = setInterval(() => {
-      setDisplay((prev) =>
+      setDisplay(() =>
         text
           .split("")
-          .map((char, index) => {
+          .map((_, index) => {
             if (index < iteration) return text[index];
             return chars[Math.floor(Math.random() * chars.length)];
           })
@@ -150,7 +150,7 @@ export default function Dashboard() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
+      transition: { type: "spring" as const, stiffness: 300, damping: 24 },
     },
   };
 

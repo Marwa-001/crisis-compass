@@ -14,7 +14,7 @@ function ScrambleText({ text }: { text: string }) {
       setDisplay(
         text
           .split("")
-          .map((char, index) => {
+          .map((_, index) => {
             if (index < iteration) return text[index];
             return chars[Math.floor(Math.random() * chars.length)];
           })

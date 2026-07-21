@@ -74,8 +74,8 @@ async def get_alerts(lat: float, lng: float):
                     point = item.find('{http://www.georss.org/georss}point')
                     if point is not None and point.text:
                         p_lat, p_lng = map(float, point.text.strip().split())
-                        # If within 1000km, consider it relevant
-                        if haversine(lat, lng, p_lat, p_lng) < 1000:
+                        # If within 100km, consider it relevant
+                        if haversine(lat, lng, p_lat, p_lng) < 100:
                             gdacs_alerts.append(item)
                 
                 if gdacs_alerts:

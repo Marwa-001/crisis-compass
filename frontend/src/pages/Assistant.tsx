@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import GeoSphere from "../components/GeoSphere";
@@ -12,7 +12,7 @@ function ScrambleText({ text }: { text: string }) {
     let iteration = 0;
     const interval = setInterval(() => {
       setDisplay(
-        text.split("").map((char, index) => {
+        text.split("").map((_, index) => {
           if (index < iteration) return text[index];
           return chars[Math.floor(Math.random() * chars.length)];
         }).join("")

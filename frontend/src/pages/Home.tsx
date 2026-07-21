@@ -22,27 +22,6 @@ function Typewriter({ text, delay = 0 }: { text: string; delay?: number }) {
   return <>{out}</>;
 }
 
-// ── Glitch text effect ────────────────────────────────────────────────────────
-function GlitchWord({ children }: { children: string }) {
-  return (
-    <span className="relative inline-block group">
-      <span className="relative z-10">{children}</span>
-      <span
-        aria-hidden
-        className="absolute inset-0 text-red-400 opacity-0 group-hover:opacity-60 translate-x-[2px] translate-y-[1px] pointer-events-none transition-opacity duration-75"
-      >
-        {children}
-      </span>
-      <span
-        aria-hidden
-        className="absolute inset-0 text-emerald-300 opacity-0 group-hover:opacity-60 -translate-x-[2px] -translate-y-[1px] pointer-events-none transition-opacity duration-75"
-      >
-        {children}
-      </span>
-    </span>
-  );
-}
-
 // ── Animated counter ──────────────────────────────────────────────────────────
 function Counter({ to, label }: { to: number; label: string }) {
   const [count, setCount] = useState(0);
